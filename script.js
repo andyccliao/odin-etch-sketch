@@ -1,5 +1,6 @@
 function setGridSize() {
     const grid = document.getElementById("grid");
+    grid.replaceChildren();
     grid.style.gridTemplateRows = `repeat(${NUMSQUARES}, 1fr)`;
     grid.style.gridTemplateColumns = `repeat(${NUMSQUARES}, 1fr)`;
     let SQUAREWIDTH = grid.clientWidth / NUMSQUARES;
@@ -21,3 +22,15 @@ let NUMSQUARES = 16;
 setGridSize(NUMSQUARES);
 let gridSizePromptButton = document.getElementById("changeGridSize");
 
+gridSizePromptButton.addEventListener('click', () => {
+    let response = prompt("How many squares per side would you like? From 1 - 100:", NUMSQUARES);
+    if (response == null) return;
+    NUMSQUARES = +response;
+    console.log(NUMSQUARES);
+    while (Number.isNaN(NUMSQUARES) || NUMSQUARES > 100 || NUMSQUARES < 1) {
+        response = prompt("Try again. How many squares per side would you like? From 1 - 100:", NUMSQUARES);
+        if (response == null) return;
+        NUMSQUARES = +response;
+    }
+    setGridSize(NUMSQUARES);
+})

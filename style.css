@@ -15,12 +15,13 @@ body {
 
 .gridSquare {
     box-sizing: border-box;
-    border: 1px solid blue;
-    transition: background-color 1s;
+    border: 1px solid #f0f0f0;
+    transition: background-color 1s, border 1s;
 }
 .gridSquare:hover {
     background-color: aqua;
-    transition: background-color;
+    transition: background-color, border;
+    border: 0px white;
 }
 
 #changeGridSize {
