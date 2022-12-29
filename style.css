@@ -17,6 +17,38 @@ body {
     box-sizing: border-box;
     border: 1px solid #f0f0f0;
     transition: background-color 1s, border 1s;
+    background-color: rgba(0, 0, 0);
+}
+/* Blacken amounts calculated from a log scale */
+.gridSquare.blacken10 {
+    background-color: rgba(255, 255, 255);
+}
+.gridSquare.blacken9 {
+    background-color: rgba(237, 237, 237);
+}
+.gridSquare.blacken8 {
+    background-color: rgba(217, 217, 217);
+}
+.gridSquare.blacken7 {
+    background-color: rgba(192, 192, 192);
+}
+.gridSquare.blacken6 {
+    background-color: rgba(170, 170, 170);
+}
+.gridSquare.blacken5 {
+    background-color: rgba(147, 147, 147);
+}
+.gridSquare.blacken4 {
+    background-color: rgba(122, 122, 122);
+}
+.gridSquare.blacken3 {
+    background-color: rgba(95, 95, 95);
+}
+.gridSquare.blacken2 {
+    background-color: rgba(66, 66, 66);
+}
+.gridSquare.blacken1 {
+    background-color: rgba(34, 34, 34);
 }
 .gridSquare:hover {
     background-color: aqua;

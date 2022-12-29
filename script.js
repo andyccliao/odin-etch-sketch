@@ -16,10 +16,32 @@ function setGridSize() {
     }
 }
 
+const RMASK = 0xFF0000;
+const GMASK = 0x00FF00;
+const BMASK = 0x0000FF;
+
+function addBlackening() {
+    const grid = document.getElementById("grid");
+    console.log(grid.childNodes);
+    grid.childNodes.forEach((node) => {
+        node.setAttribute('light-level', 10);
+        node.classList.add(`blacken${node.getAttribute('light-level')}`);
+        node.addEventListener('mouseout', 
+            (e)=>{
+                let lightness = e.target.getAttribute('light-level');
+                if (lightness < 0) return;
+                node.classList.remove(`blacken${lightness}`);
+                node.classList.add(`blacken${lightness-1}`);
+                e.target.setAttribute('light-level', lightness-1);
+            });
+    });
+}
+
 
 /** main */
 let NUMSQUARES = 16;
 setGridSize(NUMSQUARES);
+addBlackening();
 let gridSizePromptButton = document.getElementById("changeGridSize");
 
 gridSizePromptButton.addEventListener('click', () => {
@@ -33,4 +55,5 @@ gridSizePromptButton.addEventListener('click', () => {
         NUMSQUARES = +response;
     }
     setGridSize(NUMSQUARES);
+    addBlackening();
 })
